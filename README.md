@@ -1,2 +1,0 @@
-# routeguardsexample
-Created with CodeSandbox
