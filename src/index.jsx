@@ -4,7 +4,7 @@ import "./styles.css";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import GenericComponent from "./components/genericComponent";
 import UnAuthorized from "./components/unAuthorizedComponent";
-import RouteGuard from "./components/RouteGuard";
+import RouteGuard from "./components/routeGuardComponent";
 function App() {
   return (
     <div className="App">
