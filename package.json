@@ -1,9 +1,9 @@
 {
   "name": "react",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple React Application",
   "keywords": [],
-  "main": "src/index.jsx",
+  "main": "src/index.js",
   "dependencies": {
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.4.0",

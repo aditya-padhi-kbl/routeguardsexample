@@ -45,6 +45,8 @@ describe(`Test Suite for RouteGuard`, () => {
         <TestApp testText="Hello Viewer" />
       </Router>
     );
+
+    expect(true).toBe(true);
     expect(history.location.pathname).toBe("/dashboard");
     expect(container.textContent).toMatch("Hello Viewer");
   });
