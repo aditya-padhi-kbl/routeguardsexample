@@ -7,9 +7,10 @@ import { createBrowserHistory } from "history";
 import { render, cleanup } from "@testing-library/react";
 /**
  * Sample App for Testing.
+ * We can use this approach to test a component that returns redirect url.  We will be using awesome history
+ * module to keep track of history changes.
  * We can use index.js code, however this is a cleaner approach to test only this component
  */
-
 function TestApp({ testText }) {
   return (
     <>
