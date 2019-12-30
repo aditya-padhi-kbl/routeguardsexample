@@ -1,5 +1,7 @@
 import { multiply, add } from "./calc";
-
+/**
+ * These test cases are to play around calc.js.  Just for fun
+ */
 describe(`Test Suite for calc`, () => {
   describe(`Test Suite for multiply which can accept dynamic parameters`, () => {
     it(`should return the same value when single argument is passed `, () => {

@@ -66,7 +66,7 @@ describe(`Test Suite for RouteGuard`, () => {
     expect(container.textContent).toMatch(UNAUTHORIZED_MESSAGE);
   });
 
-  it(` /admin should only be accessible to admin & publisher roles`, () => {
+  it(` /admin should only be accessible to admin & publisher roles & will redirect to /unauthorized when the role changes`, () => {
     const history = createBrowserHistory();
     localStorage.setItem("userRole", "admin");
     history.push("/admin");
@@ -79,5 +79,10 @@ describe(`Test Suite for RouteGuard`, () => {
 
     expect(history.location.pathname).toBe("/admin");
     expect(container.textContent).toMatch(sampleTextContent);
+    localStorage.setItem("userRole", "viewer");
+    history.push("/admin");
+    const UNAUTHORIZED_MESSAGE = "You are not authorized";
+    expect(history.location.pathname).toBe("/unauthorized");
+    expect(container.textContent).toMatch(UNAUTHORIZED_MESSAGE);
   });
 });
