@@ -1,13 +1,15 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-import { Route } from "react-router-dom";
+import { Route, Router } from "react-router-dom";
 import RouteGuard from "./routeGuardComponent";
 import UnAuthorized from "./unAuthorizedComponent";
-
+import { createBrowserHistory } from "history";
+import { render } from "@testing-library/react";
 /**
  * Sample App for Testing.
- * We can use index.js however this is a cleaner approach to test only this component
+ * We can use index.js code, however this is a cleaner approach to test only this component
  */
+
 function TestApp({ testText }) {
   return (
     <>
@@ -34,5 +36,16 @@ function TestApp({ testText }) {
   );
 }
 describe(`Test Suite for RouteGuard`, () => {
-  it("should be able to ");
+  it(`should be able to return the correct component when the user is authorized for that route`, () => {
+    const history = createBrowserHistory();
+    localStorage.setItem("role", "viewer");
+    history.push("/dashboard");
+    const { container } = render(
+      <Router history={history}>
+        <TestApp testText="Hello Viewer" />
+      </Router>
+    );
+    expect(history.location.pathname).toBe("/dashboard");
+    expect(container.textContent).toMatch("Hello Viewer");
+  });
 });
